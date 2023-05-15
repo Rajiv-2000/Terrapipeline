@@ -1,5 +1,5 @@
 resource "aws_elb" "bar" {
-  name               = "raham-terraform-elb"
+  name               = "rajiv-terraform-elb"
   availability_zones = ["us-east-1a", "us-east-1b"]
 
   listener {
@@ -14,25 +14,10 @@ resource "aws_elb" "bar" {
     unhealthy_threshold = 5
     timeout             = 5
     target              = "HTTP:80/"
-    interval            = 30
-  }
-
-  instances                 = ["${aws_instance.one.id}", "${aws_instance.two.id}"]
-  cross_zone_load_balancing = true
-  idle_timeout              = 400
-  tags = {
-    Name = "raham-tf-elb"
-  }
+    interval      }
+ instances                 = ["${aws_instance.one.id}", "${aws_instance.two.id}"]
+ cross_zone_load_balancing = true
+  dle_timeout              = 400
+  t    Name = "rajiv-tf-elb"
+ }
 }
-
- /*resource "aws_rds_cluster" "default" {
-  cluster_identifier      = "aurora-cluster-demo"
-  engine                  = "aurora-mysql"
-  engine_version          = "5.7.mysql_aurora.2.11.2"
-  availability_zones      = ["us-east-1a", "us-east-1b"]
-  database_name           = "mydb"
-  master_username         = "foo"
-  master_password         = "Rahamshaik#444555"
-  backup_retention_period = 5
-  preferred_backup_window = "07:00-09:00"
-}*/
