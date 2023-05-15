@@ -1,13 +1,13 @@
 provider "aws" {
 region = "us-east-1"
-access_key = ""
-secret_key = ""
+access_key = "AKIA6JALO5LYHEQ266O4"
+secret_key = "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"
 }
 
 resource "aws_instance" "one" {
-  ami             = ""
+  ami             = "ami-06a0cd9728546d178"
   instance_type   = "t2.micro"
-  key_name        = "rahamnewkp01"
+  key_name        = "Terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1a"
   user_data       = <<EOF
@@ -16,7 +16,7 @@ sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hai all this is my app created by terraform infrastructurte by raham sir server-1" > /var/www/html/index.html
+echo "hai all this is my app created by terraform infrastructurte by rajiv server-1" > /var/www/html/index.html
 EOF
   tags = {
     Name = "web-server-1"
@@ -24,9 +24,9 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = ""
+  ami             = "ami-06a0cd9728546d178"
   instance_type   = "t2.micro"
-  key_name        = "rahamnewkp01"
+  key_name        = "Terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1b"
   user_data       = <<EOF
@@ -35,7 +35,7 @@ sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hai all this is my website created by terraform infrastructurte by raham sir server-2" > /var/www/html/index.html
+echo "hai all this is my website created by terraform infrastructurte by rajiv server-2" > /var/www/html/index.html
 EOF
   tags = {
     Name = "web-server-2"
@@ -43,9 +43,9 @@ EOF
 }
 
 resource "aws_instance" "three" {
-  ami             = ""
+  ami             = "ami-06a0cd9728546d178"
   instance_type   = "t2.micro"
-  key_name        = "rahamnewkp01"
+  key_name        = "Terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1a"
   tags = {
@@ -54,13 +54,13 @@ resource "aws_instance" "three" {
 }
 
 resource "aws_instance" "four" {
-  ami             = ""
+  ami             = "ami-06a0cd9728546d178"
   instance_type   = "t2.micro"
-  key_name        = "rahamnewkp01"
+  key_name        = "Terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1b"
   tags = {
-    Name = "app-server-2"
+       Name = "app-server-2"
   }
 }
 
@@ -79,7 +79,7 @@ resource "aws_security_group" "five" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+  
   egress {
     from_port   = 0
     to_port     = 0
@@ -88,12 +88,8 @@ resource "aws_security_group" "five" {
   }
 }
 
-resource "aws_s3_bucket" "six" {
-  bucket = "rahamshaikterra77889900"
-}
-
 resource "aws_iam_user" "seven" {
-name = "rahamuser11" 
+name = "rajiv-IAM"
 }
 
 resource "aws_ebs_volume" "eight" {
